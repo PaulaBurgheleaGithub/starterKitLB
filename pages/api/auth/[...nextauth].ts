@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import { getUser } from "../../../lib/server";
 import { User } from "../../../types";
+// require("dotenv").config();
 
 // Your NextAuth secret (generate a new one for production)
 // More info: https://next-auth.js.org/configuration/options#secret
@@ -12,8 +13,11 @@ export const authOptions = {
   callbacks: {
     // Get extra user info from your database to pass to front-end
     // For front end, update next-auth.d.ts with session type
-    async session({ session }: { session: any }) {
+    async session({ session, user }: { session: any; user: any }) {
+      console.log("user", user);
+      console.log("session.user.email", session.user.email);
       const userInfo: User | null = await getUser(session.user.email);
+      console.log(session.user.email);
 
       if (!userInfo) {
         throw new Error("User not found");

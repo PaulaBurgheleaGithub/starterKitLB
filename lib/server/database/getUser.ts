@@ -11,21 +11,22 @@ import { getRandom } from "../utils";
  * @param userId - The user's id
  */
 export async function getUser(userId: string): Promise<User | null> {
+  console.log("userID", userId);
+
   const user = users.find((user) => user.id === userId);
 
   if (!user) {
     console.warn(`
-ERROR: User "${userId}" was not found. 
+      ERROR: User "${userId}" was not found. 
 
-Check that you've added the user to data/users.ts, for example:
-{
-  id: "${userId}",
-  name: "Tchoka Ahoki",
-  avatar: "https://liveblocks.io/avatars/avatar-7.png",
-  groupIds: ["product", "engineering", "design"],
-},
- 
-`);
+      Check that you've added the user to data/users.ts, for example:
+      {
+        id: "${userId}",
+        name: "Tchoka Ahoki",
+        avatar: "https://liveblocks.io/avatars/avatar-7.png",
+        groupIds: ["product", "engineering", "design"],
+      },
+    `);
     return null;
   }
 

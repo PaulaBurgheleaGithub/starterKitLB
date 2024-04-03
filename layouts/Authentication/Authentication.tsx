@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import { getProviders, signIn } from "next-auth/react";
+import { useEffect } from "react";
+import { useSession, getProviders, signIn } from "next-auth/react";
 import { ComponentProps } from "react";
 import { users } from "../../data/users";
 import { Button } from "../../primitives/Button";
@@ -15,6 +16,7 @@ export function AuthenticationLayout({
   className,
   ...props
 }: Props) {
+
   return (
     <div className={clsx(className, styles.container)} {...props}>
       <main className={styles.main}>

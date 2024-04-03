@@ -12,6 +12,7 @@ import { getUsers } from "../../../lib/server";
  * @param res
  */
 async function GET(req: NextApiRequest, res: NextApiResponse) {
+  console.log("req.query.userId", req.query.userId);
   const userParam = req.query.userId;
   const searchParam = req.query.search;
 

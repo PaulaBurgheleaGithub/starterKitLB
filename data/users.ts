@@ -47,4 +47,10 @@ export const users: Omit<User, "color">[] = [
     avatar: "https://liveblocks.io/avatars/avatar-6.png",
     groupIds: ["product", "design"],
   },
+  {
+    id: "paulaburghelea.github@gmail.com",
+    name: "Paula Burghelea",
+    avatar: "https://liveblocks.io/avatars/avatar-8.png",
+    groupIds: ["admin", "engineering"],
+  },
 ];
